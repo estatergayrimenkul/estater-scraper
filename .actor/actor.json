@@ -1,0 +1,63 @@
+{
+	"actorSpecification": 1,
+	"name": "estater-scraper",
+	"title": "Estater Scraper",
+	"description": "This actor extracts product data from estatergayrimenkul.org.",
+	"version": "0.0",
+	"meta": {
+		"templateId": "ts-crawlee-cheerio"
+	},
+	"input": "./input_schema.json",
+	"dockerfile": "./Dockerfile",
+	"storages": {
+        "dataset": {
+            "actorSpecification": 1,
+            "views": {
+                "overview": {
+                    "title": "Overview",
+                    "transformation": {
+                        "fields": [
+                            "title",
+                            "img",
+                            "details",
+                            "category",
+                            "location",
+							"price"
+                        ],
+                        "flatten": [
+							
+                        ]
+                    },
+                    "display": {
+                        "component": "table",
+                        "properties": {
+                            "img": {
+                                "format": "image"
+                            },
+                            "title": {
+								"label": "Title",
+								"format": "text"
+							},
+							"details": {
+                                "label": "Details",
+                                "format": "text"
+                            },
+							"category": {
+                                "label": "Category",
+                                "format": "text"
+                            },
+                            "location": {
+                                "label": "Location",
+                                "format": "text"
+                            },
+                            "price": {
+                                "label": "Price",
+                                "format": "text"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

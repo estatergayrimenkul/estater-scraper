@@ -1,0 +1,38 @@
+{
+    "title": "Estater Scraper Input",
+    "type": "object",
+    "schemaVersion": 1,
+    "properties": {
+        "startUrls": {
+            "title": "Start URLs",
+            "type": "array",
+            "description": "URLs to start with. The actor currently supports basic category URLs such as `'http://www.estatergayrimenkul.org/tum-ilanlar/'`, URLs of their subcategories and also direct product URLs, such as `'http://www.estatergayrimenkul.org/ilan/emlak-is-yeri-satilik-estater-dan-corlu-sanayi-sitesi-nde-satilik-isyeri-200-plus130-m2-1174522108/detay'`.",
+            "editor": "stringList",
+            "prefill": [
+                "http://www.estatergayrimenkul.org/tum-ilanlar/",
+                "http://www.estatergayrimenkul.org/is-yeri/"
+            ]
+        },
+        "maxItems": {
+            "title": "Max items",
+            "type": "integer",
+            "description": "Set the maximum number of items you want to scrape. If you leave this field unset, the actor will extract all available items.",
+            "minimum": 0,
+            "prefill": 100,
+            "unit": "items"
+        },
+        "proxyConfiguration": {
+            "title": "Proxy Configuration",
+            "type": "object",
+            "description": "Use either automatic Apify proxies or your own.",
+            "prefill": {
+                "useApifyProxy": true
+            },
+            "default": {
+                "useApifyProxy": true
+            },
+            "editor": "proxy",
+            "sectionCaption": "Advanced options (proxy configuration)"
+        }
+    }
+}
